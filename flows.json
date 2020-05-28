@@ -1,0 +1,164 @@
+[
+    {
+        "id": "feb110e2.11bce",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "f3501a54.e09c68",
+        "type": "ui_form",
+        "z": "feb110e2.11bce",
+        "name": "",
+        "label": "",
+        "group": "82f6e77.4185518",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Enter your input ",
+                "value": "text",
+                "type": "text",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "text": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "",
+        "x": 70,
+        "y": 300,
+        "wires": [
+            [
+                "e5ebd03d.2fdfa"
+            ]
+        ]
+    },
+    {
+        "id": "e5ebd03d.2fdfa",
+        "type": "function",
+        "z": "feb110e2.11bce",
+        "name": "Input function",
+        "func": "msg.payload=msg.payload.text;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 260,
+        "y": 300,
+        "wires": [
+            [
+                "64c2df6e.7ad79",
+                "210fdadd.6fb5e6"
+            ]
+        ]
+    },
+    {
+        "id": "9c8d4859.1b0948",
+        "type": "function",
+        "z": "feb110e2.11bce",
+        "name": "Output function",
+        "func": "msg.payload=msg.payload.output.text[0];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 780,
+        "y": 300,
+        "wires": [
+            [
+                "faa8f83b.d503a8"
+            ]
+        ]
+    },
+    {
+        "id": "64c2df6e.7ad79",
+        "type": "watson-conversation-v1",
+        "z": "feb110e2.11bce",
+        "name": "Customer Care",
+        "workspaceid": "056cd933-51a0-4b93-8309-54b7dd890839",
+        "multiuser": false,
+        "context": true,
+        "empty-payload": false,
+        "service-endpoint": "https://api.us-south.assistant.watson.cloud.ibm.com/instances/4b4ee94f-cd6f-4a50-a7ab-9e490ca82a1f",
+        "timeout": "",
+        "optout-learning": false,
+        "x": 520,
+        "y": 180,
+        "wires": [
+            [
+                "13b6964e.e46efa",
+                "9c8d4859.1b0948"
+            ]
+        ]
+    },
+    {
+        "id": "210fdadd.6fb5e6",
+        "type": "ui_text",
+        "z": "feb110e2.11bce",
+        "group": "82f6e77.4185518",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "You",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 490,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "faa8f83b.d503a8",
+        "type": "ui_text",
+        "z": "feb110e2.11bce",
+        "group": "82f6e77.4185518",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Bot",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 1050,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "13b6964e.e46efa",
+        "type": "debug",
+        "z": "feb110e2.11bce",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 950,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "82f6e77.4185518",
+        "type": "ui_group",
+        "z": "",
+        "name": "ChatBot",
+        "tab": "7d15dd75.7bb654",
+        "order": 1,
+        "disp": true,
+        "width": 12,
+        "collapse": false
+    },
+    {
+        "id": "7d15dd75.7bb654",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Customer Care Help-Desk",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
