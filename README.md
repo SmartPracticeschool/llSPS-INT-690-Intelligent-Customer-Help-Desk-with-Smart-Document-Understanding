@@ -8,4 +8,4 @@ In this project, there will be another option. If the customer question is about
 To take it a step further, the project shall use the Smart Document Understanding feature of Watson Discovery to train it on what text in the owners manual is important and what is not. This will improve the answers returned from the queries
 
 
-Youtube Video Link: https://youtu.be/Bpk6a28ErLM
+Youtube Video Link: https://youtu.be/2ziJBfIEncc
